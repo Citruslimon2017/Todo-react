@@ -10,8 +10,8 @@ class ListItem extends Component {
 
         return(
             <div>
-                <span class="value"> { value } </span>
-                <span class="name"> { name } </span>
+                <span className="value"> { value } </span>
+                <span className="name"> { name } </span>
             </div>
         )
     }

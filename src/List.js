@@ -8,23 +8,12 @@ import ListItem from './ListItem'
 class List extends Component {
     constructor(){
         super()
-        this.state = {
-            todos: [
-                {
-                    value: 'item 01',
-                    name: 'aa'
-                },
-                {
-                    value: 'item 02',
-                    name: 'bb'
-                }
-            ]
-        }
     }
     render () {
+        const { todos } = this.props
         return (
             <div>
-                {this.state.todos.map( item => <ListItem value={item.value} name={item.name}/> )}
+                {todos.map( (item, index) => <ListItem key={index} value={item.value} name={item.name}/> )}
             </div>
         )
     }
