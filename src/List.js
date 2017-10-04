@@ -6,10 +6,6 @@ import ListItem from './ListItem'
 // {this.state.todos.map(item => <div>{item.value} {item.name}</div>)}
 
 class List extends Component {
-    constructor() {
-        super()
-    }
-    
     render() {
         const { todos, toggleItem, filters, deleteTodo } = this.props
         const activeFilterName = filters.filter(item => item.Active)[0]['name']

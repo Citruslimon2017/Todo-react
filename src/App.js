@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import List from './List'
@@ -7,6 +6,7 @@ import AddTodo from './AddTodo'
 import AllChecked from './AllChecked'
 import LeftItems from './LeftItems'
 import Filters from './Filters'
+import ClearCompleted from './ClearCompleted'
 
 class App extends Component {
   constructor(){
@@ -76,6 +76,11 @@ class App extends Component {
       todos:this.state.todos.filter((todo, index) => todoIndex !== index )
     })
   }
+  clearCompletedTodos(){
+    this.setState({
+      todos: this.state.todos.filter(item => !item.Checked)
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -89,6 +94,7 @@ class App extends Component {
           />
         <LeftItems todos={this.state.todos}/>
         <Filters filters={this.state.filters} switchFilter={this.switchFilter.bind(this)}/>
+        <ClearCompleted clearCompletedTodos={this.clearCompletedTodos.bind(this)}/>
       </div>
     );
   }
