@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import './AllChecked.css'
+
 class AllChecked extends Component {
     render(){
         const { todos, toggleAll } = this.props
@@ -8,6 +10,7 @@ class AllChecked extends Component {
         return(
             <div>
                 <input 
+                    className='AllChecked'
                     type='checkbox' 
                     checked={allChecked} 
                     onChange = {(e) => 

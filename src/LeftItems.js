@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
+import './Left.css'
+
 class LeftItems extends Component {
     render(){
         const { todos } = this.props
         const leftTodos = todos.filter(item => !item.Checked)
 
         return(
-            <div>{leftTodos.length} items left</div>
+            <span className='Left'>{leftTodos.length} items left</span>
         )
     }
 }

@@ -1,5 +1,7 @@
 import React, { Component }  from  'react'
 
+import './ListItem.css'
+
 
 // const 定义一个变量
 
@@ -12,13 +14,15 @@ class ListItem extends Component {
         const { item } = this.props
 
         return(
-            <div> 
-                <input type='checkbox' 
+            <div className='Item'> 
+                <input
+                    className='Item_checkbox' 
+                    type='checkbox' 
                     checked={item.Checked} 
                     onChange={this.handleToggle.bind(this)}
                 />
-                <span>{ item.value } </span>
-                <span onClick={() => this.props.clickDelete()}>delete</span>
+                <span className='Item_name'>{ item.value } </span>
+                <span className='Item_delete' onClick={() => this.props.clickDelete()}>delete</span>
             </div>
         )
     }

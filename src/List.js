@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import ListItem from './ListItem'
+import './List.css'
 
 
 // {this.state.todos.map(item => <div>{item.value} {item.name}</div>)}
@@ -18,7 +19,7 @@ class List extends Component {
         }
 
         return (
-            <div>
+            <div className='main'>
                 {
                     finalTodos.map((item, index) =>
                         <ListItem

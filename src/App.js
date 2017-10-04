@@ -92,9 +92,11 @@ class App extends Component {
           filters={this.state.filters}
           deleteTodo={this.deleteTodo.bind(this)}
           />
-        <LeftItems todos={this.state.todos}/>
-        <Filters filters={this.state.filters} switchFilter={this.switchFilter.bind(this)}/>
-        <ClearCompleted clearCompletedTodos={this.clearCompletedTodos.bind(this)}/>
+        <div className='footer' >
+          <LeftItems todos={this.state.todos}/>
+          <Filters filters={this.state.filters} switchFilter={this.switchFilter.bind(this)}/>
+          <ClearCompleted clearCompletedTodos={this.clearCompletedTodos.bind(this)}/>
+        </div>
       </div>
     );
   }

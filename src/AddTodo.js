@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import './AddTodo.css'
+
 class AddTodo extends Component {
     constructor(){
         super()
@@ -27,6 +29,7 @@ class AddTodo extends Component {
         return(
             <div>
                 <input 
+                className='addTodo'
                 value={this.state.inputValue} 
                 type='text' 
                 placeholder='Add Todo' 
