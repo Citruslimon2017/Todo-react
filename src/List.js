@@ -11,7 +11,7 @@ class List extends Component {
     }
     
     render() {
-        const { todos, toggleItem, filters } = this.props
+        const { todos, toggleItem, filters, deleteTodo } = this.props
         const activeFilterName = filters.filter(item => item.Active)[0]['name']
         let finalTodos = todos
 
@@ -29,6 +29,7 @@ class List extends Component {
                             key={index}
                             item={item}
                             clickCheckBox={() => toggleItem(index)}
+                            clickDelete={() => deleteTodo(index)}
                         />
                     )
                 }

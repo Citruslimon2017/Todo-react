@@ -1,6 +1,5 @@
 import React, { Component }  from  'react'
 
-import './ListItem.css'
 
 // const 定义一个变量
 
@@ -19,6 +18,7 @@ class ListItem extends Component {
                     onChange={this.handleToggle.bind(this)}
                 />
                 <span>{ item.value } </span>
+                <span onClick={() => this.props.clickDelete()}>delete</span>
             </div>
         )
     }

@@ -43,7 +43,7 @@ class App extends Component {
       todos:[...this.state.todos,{value: itemValue, Checked: false}]
     })
   }
-  toggleItem(itemIndex){
+  toggleItem(itemIndex){ //更改选中的状态
     this.setState({
       todos: this.state.todos.map((item,index) => {
         if(index === itemIndex){
@@ -55,10 +55,10 @@ class App extends Component {
       })
     })
   }
-  toggleAll(value){
+  toggleAll(isChecked){ //更改全选或者全不选的状态
     this.setState({
       todos: this.state.todos.map(item =>{
-        item.Checked = value
+        item.Checked = isChecked
         return item
       })
     })
@@ -71,12 +71,22 @@ class App extends Component {
       })
     })
   }
+  deleteTodo(todoIndex){
+    this.setState({
+      todos:this.state.todos.filter((todo, index) => todoIndex !== index )
+    })
+  }
   render() {
     return (
       <div className="App">
         <AllChecked todos={this.state.todos} toggleAll={this.toggleAll.bind(this)}/>
         <AddTodo addTodoItem={this.addTodoItem.bind(this)}/>
-        <List todos={this.state.todos} toggleItem={this.toggleItem.bind(this)} filters={this.state.filters}/>
+        <List 
+          todos={this.state.todos} 
+          toggleItem={this.toggleItem.bind(this)} 
+          filters={this.state.filters}
+          deleteTodo={this.deleteTodo.bind(this)}
+          />
         <LeftItems todos={this.state.todos}/>
         <Filters filters={this.state.filters} switchFilter={this.switchFilter.bind(this)}/>
       </div>
