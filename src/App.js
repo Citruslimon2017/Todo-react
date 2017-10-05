@@ -82,21 +82,30 @@ class App extends Component {
     })
   }
   render() {
-    return (
-      <div className="App">
-        <AllChecked todos={this.state.todos} toggleAll={this.toggleAll.bind(this)}/>
-        <AddTodo addTodoItem={this.addTodoItem.bind(this)}/>
-        <List 
-          todos={this.state.todos} 
-          toggleItem={this.toggleItem.bind(this)} 
-          filters={this.state.filters}
-          deleteTodo={this.deleteTodo.bind(this)}
-          />
-        <div className='footer' >
-          <LeftItems todos={this.state.todos}/>
-          <Filters filters={this.state.filters} switchFilter={this.switchFilter.bind(this)}/>
-          <ClearCompleted clearCompletedTodos={this.clearCompletedTodos.bind(this)}/>
+    return ( //jsx
+      <div>
+        <div className="App">
+          <h1>todos</h1>
+          <AllChecked todos={this.state.todos} toggleAll={this.toggleAll.bind(this)}/>
+          <AddTodo addTodoItem={this.addTodoItem.bind(this)}/>
+          <List 
+            todos={this.state.todos} 
+            toggleItem={this.toggleItem.bind(this)} 
+            filters={this.state.filters}
+            deleteTodo={this.deleteTodo.bind(this)}
+            />
+          <div className='footer' >
+            <LeftItems todos={this.state.todos}/>
+            <Filters filters={this.state.filters} switchFilter={this.switchFilter.bind(this)}/>
+            <ClearCompleted todos={this.state.todos} clearCompletedTodos={this.clearCompletedTodos.bind(this)}/>
+          </div>
         </div>
+        <footer className='info'>
+          <p>
+            { 'Created by ' } 
+            <a href="https://github.com/Citruslimon2017">liulei</a>
+          </p>
+        </footer>
       </div>
     );
   }

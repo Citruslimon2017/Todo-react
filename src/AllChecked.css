@@ -1,10 +1,24 @@
+@charset "UTF-8";
 .AllChecked {
   text-align: center;
   width: 40px;
   height: 40px;
   position: absolute;
-  top: 13px;
+  top: 2px;
   margin: auto 0;
   border: none;
-  left: 10px;
-  z-index: 3; }
+  left: 5px;
+  z-index: 3;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none; }
+  .AllChecked:checked:after {
+    color: #737373; }
+  .AllChecked:after {
+    content: '❯';
+    font-size: 22px;
+    color: #e6e6e6;
+    padding: 10px 27px 10px 27px;
+    cursor: pointer; }

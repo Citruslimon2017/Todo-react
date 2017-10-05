@@ -11,10 +11,10 @@ class ListItem extends Component {
         this.props.clickCheckBox(value)
     }
     render(){
-        const { item } = this.props
+        const { item, clickDelete } = this.props
 
         return(
-            <div className='Item'> 
+            <div className={'Item ' + (item.Checked ? 'checked' : '')}> 
                 <input
                     className='Item_checkbox' 
                     type='checkbox' 
@@ -22,7 +22,7 @@ class ListItem extends Component {
                     onChange={this.handleToggle.bind(this)}
                 />
                 <span className='Item_name'>{ item.value } </span>
-                <span className='Item_delete' onClick={() => this.props.clickDelete()}>delete</span>
+                <span className='Item_delete' onClick={() => clickDelete()}></span>
             </div>
         )
     }

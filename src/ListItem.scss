@@ -2,6 +2,13 @@
     position: relative;
     font-size: 24px;
     border-bottom: 1px solid #ededed;
+    &:hover .Item_delete{
+        display: block;
+    }
+    &.checked .Item_name{
+        text-decoration: line-through;
+        color: #d9d9d9;
+    }
     .Item_name{
         white-space: pre-line;
         word-break: break-all;
@@ -14,10 +21,10 @@
         font-weight: 300;
     }
     .Item_delete{
+        display: none;
         position: absolute;
-        top: 0;
-        right: 60px;
-        bottom: 0;
+        top: 8px;
+        right: 10px;
         width: 40px;
         height: 40px;
         margin: auto 0;
@@ -25,16 +32,30 @@
         color: #cc9a9a;
         margin-bottom: 11px;
         transition: color 0.2s ease-out;
+        &:hover{
+            color: #af5b5e;
+        }
+        &:after{
+            content: '×';
+        }
     }
     .Item_checkbox{
         text-align: center;
         width: 40px;
-        height: auto;
+        height: 40px;
         position: absolute;
         top: 0;
         bottom: 0;
         left: 10px;
         margin: auto 0;
         border: none;
+        appearance: none;
+        outline: none;
+        &:checked:after{
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+        }
+        &:after{
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+        }
     }
 }

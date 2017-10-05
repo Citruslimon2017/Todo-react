@@ -1,12 +1,20 @@
-.Filter{
-    color: inherit;
-    margin: 3px;
-    padding: 3px 7px;
-    text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    cursor: pointer;
-    &.selected{
-        border-color: rgba(175, 47, 47, 0.2);
+.filters{
+    position: absolute;
+    left: 0;
+    right: 0;
+    .Filter{
+        color: inherit;
+        margin: 3px;
+        padding: 3px 7px;
+        text-decoration: none;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        cursor: pointer;
+        &.selected{
+            border-color: rgba(175, 47, 47, 0.2);
+        }
+        &:hover{
+            border-color: rgba(175, 47, 47, 0.1);
+        }
     }
 }

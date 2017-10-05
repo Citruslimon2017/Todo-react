@@ -7,7 +7,7 @@ class Filters extends Component{
         const { filters, switchFilter } = this.props
 
         return(
-            <span>
+            <div className='filters'>
                 {
                     filters.map((filter,index) => 
                         <span 
@@ -19,7 +19,7 @@ class Filters extends Component{
                         </span>
                     )
                 }
-            </span>
+            </div>
         )
     }
 }

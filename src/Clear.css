@@ -1,2 +1,6 @@
 .ClearCompleted {
-  float: right; }
+  float: right;
+  cursor: pointer;
+  position: relative; }
+  .ClearCompleted:hover {
+    text-decoration: underline; }
