@@ -32,7 +32,7 @@ class AddTodo extends Component {
                 className='addTodo'
                 value={this.state.inputValue} 
                 type='text' 
-                placeholder='Add Todo' 
+                placeholder='What need to bo done?' 
                 onKeyPress={this.handleKeyPress.bind(this)} //回车
                 onChange={this.handleChange.bind(this)}
                 />
