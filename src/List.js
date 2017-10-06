@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import ListItem from './ListItem'
+import { toggleTodo, deleteTodo } from './actions'
 import './List.css'
 
 
@@ -8,7 +10,7 @@ import './List.css'
 
 class List extends Component {
     render() {
-        const { todos, toggleItem, filters, deleteTodo } = this.props
+        const { todos_redux: todos, toggleTodo_redux, filters_redux: filters, deleteTodo_redux } = this.props
         const activeFilterName = filters.filter(item => item.Active)[0]['name']
         let finalTodos = todos
 
@@ -25,8 +27,8 @@ class List extends Component {
                         <ListItem
                             key={index}
                             item={item}
-                            clickCheckBox={() => toggleItem(index)}
-                            clickDelete={() => deleteTodo(index)}
+                            clickCheckBox={() => toggleTodo_redux(index)}
+                            clickDelete={() => deleteTodo_redux(index)}
                         />
                     )
                 }
@@ -35,4 +37,22 @@ class List extends Component {
     }
 }
 
-export default List
+const mapStateToProps = (state) => { //把store数据关联到组件
+    return {
+        todos_redux: state.todos,
+        filters_redux: state.filters
+    }
+}
+
+const mapDispatchToProps = (dispatch) => { //把方法关联到当前组件
+    return {
+        toggleTodo_redux: (todoIndex) => {
+            dispatch(toggleTodo(todoIndex))
+        },
+        deleteTodo_redux: (todoIndex) =>{
+            dispatch(deleteTodo(todoIndex))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List)

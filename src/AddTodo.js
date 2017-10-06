@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+
 import './AddTodo.css'
+import { addTodo } from './actions'
 
 class AddTodo extends Component {
     constructor(){
@@ -13,7 +16,8 @@ class AddTodo extends Component {
         if(e.key==='Enter'){
             const inputValue = e.target.value
             if(inputValue === '') return
-            this.props.addTodoItem(e.target.value)
+            // this.props.addTodoItem(e.target.value)
+            this.props.addTodo_redux(inputValue)
             this.setState({
                 inputValue:''
             })
@@ -40,4 +44,13 @@ class AddTodo extends Component {
         )
     }
 }
-export default AddTodo
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        addTodo_redux: (todoVaue) => {
+            dispatch(addTodo(todoVaue))
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AddTodo)

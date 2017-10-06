@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+import { switchFilter } from './actions'
+
 import './Filters.css'
 
 class Filters extends Component{
     render(){
-        const { filters, switchFilter } = this.props
+        const { filters_redux: filters, switchFilter_redux } = this.props
 
         return(
             <div className='filters'>
@@ -13,7 +16,7 @@ class Filters extends Component{
                         <span 
                             className={'Filter ' + (filter.Active ? 'selected' : '')}
                             key={index} 
-                            onClick={() => switchFilter(index)}
+                            onClick={() => switchFilter_redux(index)}
                         >
                             {filter.name}
                         </span>
@@ -24,4 +27,17 @@ class Filters extends Component{
     }
 }
 
-export default Filters
+const mapStateToProps = (state) =>{
+    return {
+        filters_redux: state.filters
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return{
+        switchFilter_redux: (filterIndex) => {
+            dispatch(switchFilter(filterIndex))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filters)
