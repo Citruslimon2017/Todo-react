@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { switchFilter } from './actions'
 
+import Filter from './Filter'
 import './Filters.css'
 
 class Filters extends Component{
@@ -13,13 +14,11 @@ class Filters extends Component{
             <div className='filters'>
                 {
                     filters.map((filter,index) => 
-                        <span 
-                            className={'Filter ' + (filter.Active ? 'selected' : '')}
-                            key={index} 
-                            onClick={() => switchFilter_redux(index)}
-                        >
-                            {filter.name}
-                        </span>
+                        <Filter 
+                            filter={filter}
+                            key={index}
+                            clickFilter={() => switchFilter_redux(index)}
+                        />
                     )
                 }
             </div>

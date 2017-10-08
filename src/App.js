@@ -58,8 +58,8 @@ class App extends Component {
       <div>
         <div className="App">
           <h1>todos</h1>
-          <AllChecked/>
-          <AddTodo/>
+          <AllChecked />
+          <AddTodo />
           <List />
           <div className='footer' >
             <LeftItems />

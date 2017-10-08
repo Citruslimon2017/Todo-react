@@ -33,12 +33,12 @@ class AddTodo extends Component {
         return(
             <div>
                 <input 
-                className='addTodo'
-                value={this.state.inputValue} 
-                type='text' 
-                placeholder='What need to bo done?' 
-                onKeyPress={this.handleKeyPress.bind(this)} //回车
-                onChange={this.handleChange.bind(this)}
+                    className='addTodo'
+                    value={this.state.inputValue} 
+                    type='text' 
+                    placeholder='What need to bo done?' 
+                    onKeyPress={this.handleKeyPress.bind(this)} //回车
+                    onChange={this.handleChange.bind(this)}
                 />
             </div>
         )

@@ -10,6 +10,8 @@ class AllChecked extends Component {
         const { todos_redux: todos, toggleAll_redux } = this.props
         const allChecked = todos.every(item => item.Checked)
 
+        if(todos.length === 0) return ''   
+             
         return(
             <div>
                 <input 

@@ -12,7 +12,7 @@ class List extends Component {
     render() {
         const { todos_redux: todos, toggleTodo_redux, filters_redux: filters, deleteTodo_redux } = this.props
         const activeFilterName = filters.filter(item => item.Active)[0]['name']
-        let finalTodos = todos
+        let finalTodos = todos //finalTodos初始化
 
         if(activeFilterName === filters[1].name){
             finalTodos = todos.filter(todo => !todo.Checked)
